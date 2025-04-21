@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Event Management') }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'BRAC UNIVERSITY EVENT MANAGEMENT SYSTEM') }}</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <style>
@@ -34,6 +40,16 @@
             transition: all 0.3s;
             box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
             z-index: 1000;
+        }
+
+        .sidebar-brand {
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            padding: 1rem !important;
         }
 
         .sidebar.collapsed {
@@ -163,6 +179,10 @@
         <div class="toggle-sidebar" onclick="toggleSidebar()">
             <i class="bi bi-list"></i>
         </div>
+        <div class="sidebar-brand p-3 text-white">
+            <i class="bi bi-calendar-event me-2"></i>
+            BRAC UNIVERSITY EVENT MANAGEMENT SYSTEM
+        </div>
         <a href="{{ route('dashboard') }}" class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <i class="bi bi-speedometer2 me-2"></i> Dashboard
         </a>
@@ -188,7 +208,7 @@
             <div class="container-fluid">
                 <span class="navbar-brand">
                     <i class="bi bi-calendar-event me-2"></i>
-                    {{ config('app.name', 'Event Management') }}
+                    {{ config('app.name', 'BRAC UNIVERSITY EVENT MANAGEMENT SYSTEM') }}
                 </span>
             </div>
         </nav>
